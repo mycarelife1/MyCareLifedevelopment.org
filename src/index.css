@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Accessibility: skip links (WCAG 2.4.1) ─────────────────────────── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: #0F172A;
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: top 0.15s ease;
+  border: 2px solid #6eb7c7;
+  border-top: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #D4A64A;
+  outline-offset: 2px;
+}
+
+/* Suppress visible focus ring on <main> for mouse users; show for keyboard. */
+.focus-main:focus {
+  outline: none;
+}
+
+.focus-main:focus-visible {
+  outline: 3px solid #6eb7c7;
+  outline-offset: -3px;
+}
+
+/* ── Screen-reader only utility ──────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    color: #374151;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  h1 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 700;
+    color: #0F172A;
+    font-size: 56px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: #6eb7c7;
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 500;
+    color: #0F172A;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  a {
+    color: #6eb7c7;
+    transition: color 0.2s;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg
+    transition-all duration-200 shadow-md hover:shadow-lg
+    focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #6eb7c7;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background-color: #4da3b8;
+  }
+
+  .btn-primary:active {
+    background-color: #3a8fa4;
+  }
+
+  .btn-primary:focus {
+    --tw-ring-color: #6eb7c7;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg
+    transition-all duration-200 shadow-md hover:shadow-lg
+    focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #D4A64A;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 16px;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 font-semibold rounded-lg
+    transition-all duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border-color: #6eb7c7;
+    color: #6eb7c7;
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-size: 16px;
+  }
+
+  .btn-outline:hover {
+    background-color: #f0f9fb;
+  }
+
+  .section-heading {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: #6eb7c7;
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.2;
+  }
+
+  .section-heading-dark {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 600;
+    color: #0F172A;
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.2;
+  }
+
+  .section-subheading {
+    @apply text-lg max-w-2xl;
+    color: #374151;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden
+    hover:shadow-md transition-shadow duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+    focus:outline-none focus:ring-2 focus:border-transparent
+    placeholder-gray-400 transition-all duration-200;
+    color: #374151;
+    font-family: 'Inter', system-ui, sans-serif;
+    --tw-ring-color: #6eb7c7;
+  }
+
+  .accent-line {
+    display: inline-block;
+    width: 48px;
+    height: 3px;
+    background-color: #D4A64A;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-teal {
+    color: #6eb7c7;
+  }
+
+  .text-navy {
+    color: #0F172A;
+  }
+
+  .text-gold {
+    color: #D4A64A;
+  }
+
+  .bg-teal {
+    background-color: #6eb7c7;
+  }
+
+  .bg-navy {
+    background-color: #0F172A;
+  }
+
+  .bg-gold {
+    background-color: #D4A64A;
+  }
+
+  .border-teal {
+    border-color: #6eb7c7;
+  }
+
+  .border-gold {
+    border-color: #D4A64A;
+  }
+}
