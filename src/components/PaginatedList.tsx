@@ -89,8 +89,8 @@ export default function PaginatedList<T>({
             aria-label="Go to previous page"
             className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg border
                        transition-all disabled:opacity-40 disabled:cursor-not-allowed
-                       hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1"
-            style={{ borderColor: '#e5e7eb', '--tw-ring-color': '#6eb7c7' } as React.CSSProperties}
+                       hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6eb7c7] focus-visible:ring-offset-1"
+            style={{ borderColor: '#e5e7eb' }}
           >
             <ChevronLeft className="w-4 h-4" aria-hidden="true" />
             <span>Previous</span>
@@ -119,11 +119,11 @@ export default function PaginatedList<T>({
                 aria-label={`Go to page ${p}`}
                 aria-current={p === page ? 'page' : undefined}
                 className="w-10 h-10 rounded-lg text-sm font-semibold transition-all
-                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1"
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6eb7c7] focus-visible:ring-offset-1"
                 style={
                   p === page
-                    ? { backgroundColor: '#6eb7c7', color: '#ffffff', '--tw-ring-color': '#6eb7c7' }
-                    : { color: '#374151', '--tw-ring-color': '#6eb7c7' }
+                    ? { backgroundColor: '#6eb7c7', color: '#ffffff' }
+                    : { color: '#374151' }
                 }
                 onMouseEnter={(e) => { if (p !== page) e.currentTarget.style.backgroundColor = '#f0f9fb'; }}
                 onMouseLeave={(e) => { if (p !== page) e.currentTarget.style.backgroundColor = 'transparent'; }}
@@ -139,8 +139,8 @@ export default function PaginatedList<T>({
             aria-label="Go to next page"
             className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg border
                        transition-all disabled:opacity-40 disabled:cursor-not-allowed
-                       hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1"
-            style={{ borderColor: '#e5e7eb', '--tw-ring-color': '#6eb7c7' } as React.CSSProperties}
+                       hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6eb7c7] focus-visible:ring-offset-1"
+            style={{ borderColor: '#e5e7eb' }}
           >
             <span>Next</span>
             <ChevronRight className="w-4 h-4" aria-hidden="true" />

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
-  Heart, GraduationCap, Users, Shield, TreePine, Baby,
+  Users, Shield, Baby,
   Scale, Globe, ArrowRight, ChevronRight, ChevronLeft,
-  HandHeart, Target, Activity, BookOpen,
+  HandHeart, Target, Activity,
 } from 'lucide-react';
 import CountUp from '../components/CountUp';
 import NewsletterForm from '../components/NewsletterForm';
