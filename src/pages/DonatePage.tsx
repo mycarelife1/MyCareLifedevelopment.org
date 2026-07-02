@@ -37,7 +37,7 @@ export default function DonatePage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.amount && !selectedAmount) return;
+    if ((!form.amount && !selectedAmount) || !supabase) return;
     setStatus('loading');
     const { error } = await supabase.from('donations').insert({
       ...form,

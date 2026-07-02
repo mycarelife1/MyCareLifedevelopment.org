@@ -10,7 +10,7 @@ export default function NewsletterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !supabase) return;
     setStatus('loading');
     const { error } = await supabase.from('newsletter_subscribers').insert({ email });
     if (error) {

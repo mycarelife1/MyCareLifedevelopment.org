@@ -50,6 +50,7 @@ export default function VolunteerPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!supabase) return;
     setStatus('loading');
     const { error } = await supabase.from('volunteers').insert(form);
     setStatus(error ? 'error' : 'success');
