@@ -18,7 +18,7 @@ const areas = [
 const availabilities = ['Weekdays', 'Weekends', 'Both', 'Flexible'];
 
 const volunteerSlides = [
-  'https://i.postimg.cc/bvCC7b67/bbce17bb-567a-4b50-9939-5a74f689c456-1AD51FC3-F48D-418F-B816-6D03C02A5D21.jpg',
+  'https://i.postimg.cc/TPGw6KDm/c378b4a9-89f0-4ec0-8f22-e875bc0d3a3a-D21BF61A-674A-4BD7-A8C9-03CF0DC159E2.jpg',
   'https://i.postimg.cc/xTv8FGkQ/786237b3-d5a5-407c-9b3d-f79d46018973-E672ED05-1A2B-4841-A329-BA83D696DBE8.jpg',
 ];
 

@@ -64,7 +64,7 @@ export default function HomePage() {
               alt={i === slide ? s.alt : ''}
               aria-hidden={i !== slide}
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-              style={{ opacity: i === slide ? 0.4 : 0 }}
+              style={{ opacity: i === slide ? 0.25 : 0 }}
             />
           ))}
           <div className="absolute inset-0" aria-hidden="true" style={{ background: 'linear-gradient(to right, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.72) 50%, rgba(15,23,42,0.45) 100%)' }} />
