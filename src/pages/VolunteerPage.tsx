@@ -78,13 +78,3 @@ export default function VolunteerPage() {
           ))}
           <div className="absolute inset-0" aria-hidden="true" style={{ background: 'linear-gradient(to right, rgba(15,23,42,0.45), rgba(15,23,42,0.38), rgba(15,23,42,0.35))' }} />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <p className="font-semibold text-sm uppercase tracking-wider mb-2" style={{ color: '#6eb7c7' }}>Volunteer</p>
-          <h1 className="font-display font-bold text-white mb-6" style={{ fontSize: 'clamp(36px,5vw,56px)' }}>
-            Make Your Impact Count
-          </h1>
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: '#cbd5e1' }}>
-            Join our team of 100+ volunteers making a difference in communities across Nigeria. Your time and skills can change lives.
-          </p>
-        </div>
-      </section>
