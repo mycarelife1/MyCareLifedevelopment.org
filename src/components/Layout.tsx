@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 
+const LOGO_URL = 'https://i.postimg.cc/Hn7c1WMk/b680f6b2-17ec-4a75-9482-c8f4ceb66e42-D36CA9B6-1AE3-4A0A-9DA9-08EED2D3A440.jpg';
+
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About Us' },
@@ -26,14 +28,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // WCAG 2.4.3: move focus to main content on every route change so keyboard
-  // and screen-reader users start at the top of the new page, not wherever
-  // focus happened to be in the previous page's DOM.
   useEffect(() => {
     setMobileOpen(false);
     window.scrollTo(0, 0);
-    // Focus the main landmark; tabIndex="-1" makes it programmatically
-    // focusable without adding it to the natural tab order.
     requestAnimationFrame(() => {
       mainRef.current?.focus({ preventScroll: true });
     });
@@ -41,11 +38,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* ── Skip Links (WCAG 2.4.1) ─────────────────────────────────────────
-          Visually hidden until focused; allows keyboard users to bypass the
-          repeated navigation block and jump straight to main content or the
-          primary navigation.
-      ──────────────────────────────────────────────────────────────────── */}
       <a
         href="#main-content"
         className="skip-link"
@@ -71,9 +63,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link to="/" className="flex items-center gap-2 shrink-0">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#6eb7c7' }}>
-                <Heart className="w-6 h-6 text-white" fill="white" />
-              </div>
+              <img src={LOGO_URL} alt="MyCare Life Development Organization logo" className="h-11 w-auto object-contain" />
               <div className="leading-tight">
                 <span className="font-display font-bold text-lg block" style={{ color: '#0F172A' }}>MyCare Life</span>
                 <span className="text-[10px] text-gray-500 tracking-wider uppercase">Development Org</span>
@@ -154,9 +144,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </header>
 
-      {/* tabIndex="-1" makes this programmatically focusable (for route changes)
-          without inserting it into the natural Tab sequence. The :focus-visible
-          outline is suppressed via CSS so it's invisible to mouse users. */}
       <main
         id="main-content"
         ref={mainRef}
@@ -172,9 +159,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#6eb7c7' }}>
-                  <Heart className="w-5 h-5 text-white" fill="white" />
-                </div>
+                <img src={LOGO_URL} alt="MyCare Life Development Organization logo" className="h-10 w-auto object-contain" />
                 <span className="font-display font-bold text-lg text-white">MyCare Life Development Organization</span>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed mb-4">
