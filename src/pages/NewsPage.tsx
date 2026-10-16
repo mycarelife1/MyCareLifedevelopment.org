@@ -1,7 +1,9 @@
-import { Calendar, User, Tag } from 'lucide-react';
+import { Calendar, Tag } from 'lucide-react';
 import { newsArticles } from '../data/content';
 import NewsletterForm from '../components/NewsletterForm';
 import PaginatedList from '../components/PaginatedList';
+
+const LOGO_URL = 'https://i.postimg.cc/Hn7c1WMk/b680f6b2-17ec-4a75-9482-c8f4ceb66e42-D36CA9B6-1AE3-4A0A-9DA9-08EED2D3A440.jpg';
 
 type Article = typeof newsArticles[number];
 
@@ -52,14 +54,15 @@ export default function NewsPage() {
                 <p className="leading-relaxed mb-4" style={{ color: '#374151' }}>{newsArticles[0].excerpt}</p>
                 <div className="flex items-center gap-4 text-sm text-gray-500">
                   <span className="flex items-center gap-1"><Calendar className="w-4 h-4" aria-hidden="true" /> <time dateTime={newsArticles[0].date}>{new Date(newsArticles[0].date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time></span>
-                  <span className="flex items-center gap-1"><User className="w-4 h-4" aria-hidden="true" /> {newsArticles[0].author}</span>
+                  <span className="flex items-center gap-2">
+                    <img src={LOGO_URL} alt="MyCare Life Development Organization" className="h-6 w-auto object-contain" />
+                    {newsArticles[0].author}
+                  </span>
                 </div>
               </div>
             </div>
           </article>
 
-          {/* Articles Grid — PaginatedList gives keyboard/SR users a predictable
-              page-based structure instead of relying on scroll position */}
           <PaginatedList<Article>
             items={newsArticles.slice(1)}
             pageSize={6}
@@ -88,8 +91,8 @@ export default function NewsPage() {
                       <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
                       <time dateTime={article.date}>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
                     </span>
-                    <span className="flex items-center gap-1">
-                      <User className="w-3.5 h-3.5" aria-hidden="true" />
+                    <span className="flex items-center gap-1.5">
+                      <img src={LOGO_URL} alt="MyCare Life Development Organization" className="h-5 w-auto object-contain" />
                       {article.author}
                     </span>
                   </div>

@@ -49,8 +49,7 @@ export default function ImpactStoriesPage() {
         </div>
       </section>
 
-      {/* Stories — paginated list replaces static slice, giving keyboard/SR users
-          a predictable, navigable structure instead of a truncated card dump */}
+      {/* Stories */}
       <section className="py-20 md:py-28" aria-label="Impact stories">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PaginatedList<Story>
@@ -123,10 +122,9 @@ export default function ImpactStoriesPage() {
         </div>
       </section>
 
-      {/* Lightbox – WCAG 2.4.3 compliant modal dialog */}
+      {/* Lightbox */}
       {lightbox && (
         <FocusTrap active={!!lightbox} initialFocusRef={closeButtonRef} onEscape={closeLightbox}>
-          {/* role="dialog" + aria-modal tells AT to confine virtual cursor */}
           <div
             role="dialog"
             aria-modal="true"
@@ -134,7 +132,6 @@ export default function ImpactStoriesPage() {
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             style={{ backgroundColor: 'rgba(0,0,0,0.9)' }}
             onClick={(e) => {
-              // Close only when clicking the backdrop, not the image itself
               if (e.target === e.currentTarget) closeLightbox();
             }}
           >
