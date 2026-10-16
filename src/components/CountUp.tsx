@@ -44,15 +44,11 @@ export default function CountUp({ end, suffix = '', duration = 2000 }: CountUpPr
   const finalFormatted = end >= 1000 ? end.toLocaleString() : end.toString();
 
   return (
-    // aria-label always shows the final value so screen readers speak it once
-    // and correctly, ignoring the visual animation in between.
-    // aria-atomic="true" prevents intermediate partial reads.
     <div
       ref={ref}
       aria-label={`${finalFormatted}${suffix}`}
       aria-atomic="true"
     >
-      {/* aria-hidden hides the animated span from AT; the div's aria-label is read instead */}
       <span
         aria-hidden="true"
         className="text-4xl md:text-5xl font-bold"

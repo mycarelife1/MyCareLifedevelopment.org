@@ -22,7 +22,6 @@ export default function NewsletterForm() {
 
   if (status === 'success') {
     return (
-      // role="status" announces this to screen readers without interrupting
       <div role="status" className="flex items-center gap-2 font-medium" style={{ color: '#6eb7c7' }}>
         <CheckCircle className="w-5 h-5 shrink-0" aria-hidden="true" />
         <span>Thank you for subscribing!</span>
@@ -33,7 +32,6 @@ export default function NewsletterForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3" noValidate>
       <div className="relative flex-1">
-        {/* Visible label associated via htmlFor — placeholder alone is not sufficient (WCAG 1.3.1) */}
         <label htmlFor={inputId} className="sr-only">
           Email address for newsletter
         </label>
@@ -60,7 +58,6 @@ export default function NewsletterForm() {
       >
         {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
       </button>
-      {/* role="alert" causes immediate announcement without waiting for AT polling */}
       {status === 'error' && (
         <p id={errorId} role="alert" className="text-red-600 text-sm mt-1 w-full">
           Something went wrong. Please try again.
