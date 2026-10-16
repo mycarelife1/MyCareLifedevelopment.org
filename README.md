@@ -33,9 +33,9 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 npm run build
 ```
 
-## Deploy to Netlify
+## Deploy
 
-1. Connect this repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-4. Add environment variables in Netlify dashboard
+Connect this repository to your hosting provider (Vercel, Netlify, etc.)
+Set build command: `npm run build`
+Set output directory: `dist`
+Add environment variables in your hosting dashboard.
