@@ -11,21 +11,6 @@ interface PaginatedListProps<T> {
   gridClassName?: string;
 }
 
-/**
- * Accessible replacement for infinite scroll and carousels.
- *
- * Why pagination > infinite scroll for accessibility:
- * - Screen reader users lose context with infinite scroll; they can't jump
- *   to "page 3 of results" or return to a known position.
- * - Keyboard users can't predict where focus lands after content loads.
- * - Motor-impaired users can't reliably trigger the load-more trigger zone.
- *
- * This component satisfies:
- * - WCAG 2.4.3 (Focus Order): focus moves to the first new item after page change.
- * - WCAG 2.4.6 (Headings / Labels): page status announced via aria-live.
- * - WCAG 1.3.1 (Info & Relationships): nav landmark, aria-label on buttons.
- * - WCAG 2.1.1 (Keyboard): full keyboard operation with visible focus styles.
- */
 export default function PaginatedList<T>({
   items,
   pageSize = 6,
@@ -46,8 +31,6 @@ export default function PaginatedList<T>({
 
   const goTo = (next: number) => {
     setPage(next);
-    // Move focus to the list container so the next batch is immediately
-    // reachable by Tab (WCAG 2.4.3) and the status region update is heard.
     requestAnimationFrame(() => {
       listRef.current?.focus({ preventScroll: false });
       listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -56,7 +39,6 @@ export default function PaginatedList<T>({
 
   return (
     <div className={className}>
-      {/* Status region: announces page changes to screen readers politely */}
       <div
         id={statusId}
         role="status"
@@ -67,8 +49,6 @@ export default function PaginatedList<T>({
         Showing {startOrdinal} to {endOrdinal} of {items.length} {itemLabel}
       </div>
 
-      {/* List — tabIndex="-1" makes it programmatically focusable without
-          adding it to the natural tab order */}
       <div
         ref={listRef}
         tabIndex={-1}
@@ -100,7 +80,6 @@ export default function PaginatedList<T>({
             const isEllipsis = totalPages > 7 && Math.abs(p - page) > 2 && p !== 1 && p !== totalPages;
             const isEdge = p === 1 || p === totalPages;
             if (isEllipsis && !isEdge) {
-              // Only render one ellipsis on each side
               const leftGap = p === 2;
               const rightGap = p === totalPages - 1;
               if (leftGap || rightGap) {
@@ -148,7 +127,6 @@ export default function PaginatedList<T>({
         </nav>
       )}
 
-      {/* Visible page status below pagination — useful for all users */}
       <p className="mt-4 text-center text-sm text-gray-500" aria-hidden="true">
         Showing {startOrdinal}–{endOrdinal} of {items.length} {itemLabel}
       </p>
